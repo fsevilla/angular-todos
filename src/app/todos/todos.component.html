@@ -1,0 +1,9 @@
+<h1>Todo List</h1>
+<form (ngSubmit)="handleNewTodo(myTodo.value)">
+	<input #myTodo required type="text" placeholder="Add new todo">
+	<button>Add Todo</button>
+</form>
+<ul>
+	<li *ngFor="let todo of todos">{{todo}}</li>
+</ul>
+<p *ngIf="!todos.length">{{status}}</p>
