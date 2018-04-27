@@ -7,23 +7,30 @@ import { TodoService } from './todo.service';
   styleUrls: ['./todos.component.scss']
 })
 export class TodosComponent implements OnInit {
-  public todos: Array<string> = [];
+  public todos: Array<any> = [];
   public status: string = 'Loading todos!';
   constructor(private todoService: TodoService) { 
   }
 
   ngOnInit() {
-  	this.todos = this.todoService.getTodos();
+  	this.todoService.getTodos()
+  		.then(response => {
+  			this.todos = response;
+  		})
+  		.catch(error => {
+  			console.log('Error: ', error);
+  		});
   }
   handleNewTodo(todo: any) {
 	if(this.todoService.addTodo(todo)) {		
 		this.status = 'Todo Added!';
-		this.todos = this.todoService.getTodos();
+		// this.todos = this.todoService.getTodos();
 	}
 	else {
 		this.status = 'No records found!';
 		console.log("Something goes wrong!");
 	}
   }
+
 
 }
