@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
 import { UserService } from './../shared/services/user.service';
 import { Router } from '@angular/router';
 
@@ -7,20 +7,28 @@ import { Router } from '@angular/router';
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.scss']
 })
-export class SignupComponent implements OnInit {
-
+export class SignupComponent implements OnInit, AfterViewInit {
+  @ViewChild('myForm') myForm: ElementRef;
   public error:string;
   public data:any = {};
   constructor(
   	private userService: UserService,
-    private router: Router
+    private router: Router,
   ) { }
 
   ngOnInit() {
+    
+  }
+  ngAfterViewInit() {
+    console.log(this.myForm);
   }
 
   addUser() {
-  	this.userService.register(this.data)
+    if(this.myForm.nativeElement.className.includes('ng-invalid')) {
+      console.log('Invalid Form');
+      return false;
+    } else {
+     	this.userService.register(this.data)
   		.then(response => {
   			console.log('Usuario creado: ', response);
   			this.error = '';
@@ -30,6 +38,7 @@ export class SignupComponent implements OnInit {
   			console.error('Failed: ', error.json());
   			this.error = error.json().error;
   		});
+    }
   }
 
 }

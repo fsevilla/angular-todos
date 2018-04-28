@@ -1,1 +1,17 @@
 @import "../shared/styles/alerts.scss";
+
+form {
+	&.ng-dirty.ng-valid {
+		button { 
+			background: lightblue;
+			cursor: pointer;
+		}
+	}
+	&.ng-invalid {
+		button { 
+			background: lightgray;
+			pointer-events: none;
+			cursor: default;
+		}	
+	}
+}
