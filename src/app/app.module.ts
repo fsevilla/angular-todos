@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 
 
 import { AppComponent } from './app.component';
@@ -13,6 +15,7 @@ import { NotFoundComponent } from './error-pages/not-found/not-found.component';
 import { SignupComponent } from './signup/signup.component';
 import { UserService } from './shared/services/user.service';
 import { LoginComponent } from './login/login.component';
+import { ErrorHandlerService } from './shared/services/error-handler.service';
 
 
 @NgModule({
@@ -29,11 +32,14 @@ import { LoginComponent } from './login/login.component';
     FormsModule,
     HttpModule,
     ReactiveFormsModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
     routing
   ],
   providers: [
   	TodoService,
-    UserService
+    UserService,
+    ErrorHandlerService
   ],
   bootstrap: [
   	AppComponent
