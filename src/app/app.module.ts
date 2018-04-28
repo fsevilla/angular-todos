@@ -16,6 +16,7 @@ import { SignupComponent } from './signup/signup.component';
 import { UserService } from './shared/services/user.service';
 import { LoginComponent } from './login/login.component';
 import { ErrorHandlerService } from './shared/services/error-handler.service';
+import { AuthService } from './shared/services/auth.service';
 
 
 @NgModule({
@@ -39,7 +40,8 @@ import { ErrorHandlerService } from './shared/services/error-handler.service';
   providers: [
   	TodoService,
     UserService,
-    ErrorHandlerService
+    ErrorHandlerService,
+    AuthService
   ],
   bootstrap: [
   	AppComponent

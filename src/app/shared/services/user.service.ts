@@ -2,11 +2,15 @@ import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/Rx';
 import { environment } from './../../../environments/environment';
+import { AuthService } from './auth.service';
 
 @Injectable()
 export class UserService {
 
-  constructor(private http: Http) { }
+  constructor(
+    private http: Http,
+    private authService: AuthService
+  ) { }
 
   register(data:any): Promise<any> {
   	console.log('Will create user: ', data);
@@ -18,7 +22,10 @@ export class UserService {
   login(credentials:any): Promise<any> {
   	let data = Object.assign({}, credentials, environment.client);
   	return this.http.post(`${environment.authApi}oauth/token`, data)
-  		.map(response => response.json())
+  		.map(response => {
+        this.authService.setToken(response.json());
+        return response.json();
+      })
   		.toPromise();
   }
 
