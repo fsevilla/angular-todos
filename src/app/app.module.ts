@@ -17,6 +17,7 @@ import { UserService } from './shared/services/user.service';
 import { LoginComponent } from './login/login.component';
 import { ErrorHandlerService } from './shared/services/error-handler.service';
 import { AuthService } from './shared/services/auth.service';
+import { HeaderComponent } from './header/header.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { AuthService } from './shared/services/auth.service';
     TodoDetailsComponent,
     NotFoundComponent,
     SignupComponent,
-    LoginComponent
+    LoginComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

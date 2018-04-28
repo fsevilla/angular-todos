@@ -1,12 +1,15 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 @Injectable()
 export class AuthService {
 
+  public loginStatus: BehaviorSubject<any> = new BehaviorSubject(false);
   constructor() { }
 
   setToken(token) {
   	localStorage.setItem('token', JSON.stringify(token));
+    this.loginStatus.next(true);
   }
 
   getToken() {
@@ -16,6 +19,15 @@ export class AuthService {
   getAuthorization() {
   	let token = JSON.parse(this.getToken());
   	return `${token.token_type} ${token.access_token}`;
+  }
+
+  isLoggedIn() {
+  	return !!localStorage.getItem('token');
+  }
+
+  logout() {
+    localStorage.removeItem('token');
+    this.loginStatus.next(false);
   }
 
 }
