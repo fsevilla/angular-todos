@@ -6,7 +6,8 @@ export class ErrorHandlerService {
 
   private messages:any = {
   	invalid_credentials: 'Wrong username or password',
-  	invalid_request: 'Review your data and try again'
+  	invalid_request: 'Review your data and try again',
+  	invalid_code: 'Invalid invitation code'
   }
 
   constructor(

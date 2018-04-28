@@ -2,6 +2,7 @@ import { Component, OnInit, ElementRef, ViewChild, AfterViewInit } from '@angula
 import { UserService } from './../shared/services/user.service';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
+import { ErrorHandlerService } from './../shared/services/error-handler.service';
 
 @Component({
   selector: 'signup',
@@ -18,7 +19,8 @@ export class SignupComponent implements OnInit, AfterViewInit {
   constructor(
   	private userService: UserService,
     private router: Router,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private errorService: ErrorHandlerService
   ) { }
 
   ngOnInit() {
@@ -54,6 +56,7 @@ export class SignupComponent implements OnInit, AfterViewInit {
   		.catch(error => {
   			console.error('Failed: ', error.json());
   			this.error = error.json().error;
+        this.errorService.handle(error);
   		});
   }
 
