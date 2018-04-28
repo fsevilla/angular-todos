@@ -20,7 +20,7 @@ import { AuthService } from './shared/services/auth.service';
 import { HeaderComponent } from './header/header.component';
 import { AuthGuard } from './shared/guards/auth.guard';
 import { UnauthGuard } from './shared/guards/unauth.guard';
-
+import { CustomHttpService } from './shared/services/custom-http.service';
 
 @NgModule({
   declarations: [
@@ -47,7 +47,8 @@ import { UnauthGuard } from './shared/guards/unauth.guard';
     ErrorHandlerService,
     AuthService,
     AuthGuard,
-    UnauthGuard
+    UnauthGuard,
+    CustomHttpService
   ],
   bootstrap: [
   	AppComponent

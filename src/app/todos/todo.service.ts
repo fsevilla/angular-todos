@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers } from '@angular/http';
 import { environment } from './../../environments/environment';
-import { AuthService } from './../shared/services/auth.service';
 import 'rxjs/Rx';
+
+import { AuthService } from './../shared/services/auth.service';
+import { CustomHttpService } from './../shared/services/custom-http.service';
 
 @Injectable()
 export class TodoService {
@@ -10,23 +12,19 @@ export class TodoService {
   
   constructor(
   	private http: Http,
-    private authService: AuthService
+    private authService: AuthService,
+    private customHttp: CustomHttpService
   ) { }
 
   getTodos() {
-    const headers = new Headers();
-    headers.append('Accept', 'application/json');
-    headers.append('Authorization', this.authService.getToken());
-  	return this.http.get(`${environment.api}todos`, {headers})
+    
+  	return this.customHttp.get(`${environment.api}todos`)
   		.map(response => response.json())
   		.toPromise();
   }
 
   getTodoDetails(id: number): Promise<any> {
-    const headers = new Headers();
-    headers.append('Accept', 'application/json');
-    headers.append('Authorization', this.authService.getToken());
-    return this.http.get(`${environment.api}todos/${id}`, {headers})
+    return this.customHttp.get(`${environment.api}todos/${id}`)
       .map(response => response.json())
       .toPromise();
   }
