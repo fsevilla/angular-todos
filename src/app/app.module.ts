@@ -18,6 +18,8 @@ import { LoginComponent } from './login/login.component';
 import { ErrorHandlerService } from './shared/services/error-handler.service';
 import { AuthService } from './shared/services/auth.service';
 import { HeaderComponent } from './header/header.component';
+import { AuthGuard } from './shared/guards/auth.guard';
+import { UnauthGuard } from './shared/guards/unauth.guard';
 
 
 @NgModule({
@@ -43,7 +45,9 @@ import { HeaderComponent } from './header/header.component';
   	TodoService,
     UserService,
     ErrorHandlerService,
-    AuthService
+    AuthService,
+    AuthGuard,
+    UnauthGuard
   ],
   bootstrap: [
   	AppComponent
