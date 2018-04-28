@@ -1,0 +1,10 @@
+@import "./variables.scss";
+
+.error{
+	display: inline-block;
+	color: #FF4F48;
+	background-color: $danger-bg-color;
+	border: solid 1px #FF4F48;
+	border-radius: 4px;
+	padding: 5px 10px;
+}

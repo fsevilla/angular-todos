@@ -1,3 +1,22 @@
-<p>
-  signup works!
-</p>
+<h2>Register</h2>
+<span *ngIf="error" class="error">{{error}}</span>
+<form (submit)="addUser()">
+	<div>
+		<label for="code">Code: </label>
+		<input type="text" name="code" [(ngModel)]="data.code">
+	</div>
+	<div>
+		<label for="name">Full name: </label>
+		<input type="text" name="name" [(ngModel)]="data.name">
+	</div>
+	<div>
+		<label for="email">Email: </label>
+		<input type="email" name="email" [(ngModel)]="data.email">
+	</div>
+	<div>
+		<label for="password">Password: </label>
+		<input type="password" name="password" [(ngModel)]="data.password">
+	</div>
+	<a routerLink="/login">Cancel</a>
+	<button>Sign up</button>
+</form>

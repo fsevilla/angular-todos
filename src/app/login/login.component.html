@@ -1,0 +1,16 @@
+<h1>Sign In</h1>
+<span class="error" *ngIf="error">{{error}}</span>
+<form (submit)="doLogin()">
+	<div>
+		<label for="username">Email: </label>
+		<input type="email" name="username" [(ngModel)]="data.username">
+	</div>
+	<div>
+		<label for="password">Password: </label>
+		<input type="password" name="password" [(ngModel)]="data.password">
+	</div>
+	<button>Log in</button>
+	<p>Not an user? 
+	<a routerLink="/signup">Register here</a>
+	</p>
+</form>

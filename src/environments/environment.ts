@@ -5,5 +5,11 @@
 
 export const environment = {
   production: false,
-  api: 'http://localhost:8000/api/'
+  api: 'http://localhost:8000/api/',
+  authApi: 'http://localhost:8000/',
+  client: {
+  	client_id: 2,
+  	grant_type: 'password',
+  	client_secret: 'EaNWQo6E4VgK2DqN8IMOeCapnzU2VOEhyI4McdGx'
+  }
 };

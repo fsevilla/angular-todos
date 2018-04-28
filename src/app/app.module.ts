@@ -11,6 +11,8 @@ import { TodoDetailsComponent } from './todos/todo-details/todo-details.componen
 import { routing } from './app.routing';
 import { NotFoundComponent } from './error-pages/not-found/not-found.component';
 import { SignupComponent } from './signup/signup.component';
+import { UserService } from './shared/services/user.service';
+import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
@@ -19,7 +21,8 @@ import { SignupComponent } from './signup/signup.component';
     TodosComponent,
     TodoDetailsComponent,
     NotFoundComponent,
-    SignupComponent
+    SignupComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +31,8 @@ import { SignupComponent } from './signup/signup.component';
     routing
   ],
   providers: [
-  	TodoService
+  	TodoService,
+    UserService
   ],
   bootstrap: [
   	AppComponent
