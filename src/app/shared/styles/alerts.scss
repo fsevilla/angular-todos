@@ -7,4 +7,8 @@
 	border: solid 1px #FF4F48;
 	border-radius: 4px;
 	padding: 5px 10px;
+
+	& + .error{
+		display: none;
+	}
 }

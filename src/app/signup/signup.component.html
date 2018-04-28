@@ -1,21 +1,28 @@
 <h2>Register</h2>
 <span *ngIf="error" class="error">{{error}}</span>
-<form name="sigIn" novalidate="false" #myForm (submit)="addUser()">
+{{signupForm.valid}}
+<form name="sigIn" [formGroup]="signupForm" (submit)="addUser()">
 	<div>
 		<label for="code">Code: </label>
-		<input required type="text" name="code" [(ngModel)]="data.code">
+		<input required type="text" name="code" formControlName="code" [(ngModel)]="data.code">
+		<span class="error" *ngIf="errorMessages.code || hasError('code', 'required')">Code is required</span>
 	</div>
 	<div>
 		<label for="name">Full name: </label>
-		<input required type="text" name="name" [(ngModel)]="data.name">
+		<input required type="text" name="name" formControlName="name" [(ngModel)]="data.name">
+		<span class="error" *ngIf="errorMessages.name || hasError('name', 'required')">Name is required</span>
 	</div>
 	<div>
 		<label for="email">Email: </label>
-		<input email required type="email" name="email" [(ngModel)]="data.email">
+		<input email required type="email" name="email" formControlName="email" [(ngModel)]="data.email">
+		<span class="error" *ngIf="errorMessages.email || hasError('email', 'required')">Email is required</span>
+		<span class="error" *ngIf="hasError('email', 'email')">Email is not valid</span>
 	</div>
 	<div>
 		<label for="password">Password: </label>
-		<input required type="password" name="password" [(ngModel)]="data.password">
+		<input required type="text" name="password" formControlName="password" [(ngModel)]="data.password">
+		<span class="error" *ngIf="errorMessages.password || hasError('password', 'required')">Password is required</span>
+		<span class="error" *ngIf="hasError('password', 'pattern')">Password is not strong enough</span>
 	</div>
 	<a routerLink="/login">Cancel</a>
 	<button>Sign up</button>
