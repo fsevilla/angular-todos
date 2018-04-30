@@ -21,6 +21,7 @@ import { HeaderComponent } from './header/header.component';
 import { AuthGuard } from './shared/guards/auth.guard';
 import { UnauthGuard } from './shared/guards/unauth.guard';
 import { CustomHttpService } from './shared/services/custom-http.service';
+import { TodoStatusDirective } from './todos/status.directive';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { CustomHttpService } from './shared/services/custom-http.service';
     NotFoundComponent,
     SignupComponent,
     LoginComponent,
-    HeaderComponent
+    HeaderComponent,
+    TodoStatusDirective
   ],
   imports: [
     BrowserModule,
