@@ -5,7 +5,7 @@
 </form> -->
 <ul>
 	<li *ngFor="let todo of todos">
-		<a [status]="todo.status_id" [routerLink]="todo.id">{{todo.name}}</a>
+		<a [status]="todo.status_id" [routerLink]="todo.id" (onStatusColored)="onStatusColoredHandler($event)">{{todo.name}}</a>
 	</li>
 </ul>
 <p *ngIf="!todos.length">{{status}}</p>

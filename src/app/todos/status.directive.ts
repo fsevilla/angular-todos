@@ -7,7 +7,7 @@ import { Directive, Input, Output, EventEmitter, AfterViewInit, ElementRef } fro
 export class TodoStatusDirective implements AfterViewInit {
   
   @Input() status;
-  @Output() statusColored = new EventEmitter<boolean>();
+  @Output() onStatusColored = new EventEmitter<string>();
   
   constructor(private elementRef: ElementRef) { }
 
@@ -25,10 +25,11 @@ export class TodoStatusDirective implements AfterViewInit {
   		default:
   			this.addClassName('new');
   			break;
-  	}
+  	 }
   }
 
   addClassName(className) {
   	this.elementRef.nativeElement.className = className;
+  	this.onStatusColored.emit(className);
   }
 }

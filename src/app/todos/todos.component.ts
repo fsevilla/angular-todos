@@ -22,14 +22,18 @@ export class TodosComponent implements OnInit {
   		});
   }
   handleNewTodo(todo: any) {
-	if(this.todoService.addTodo(todo)) {		
-		this.status = 'Todo Added!';
-		// this.todos = this.todoService.getTodos();
-	}
-	else {
-		this.status = 'No records found!';
-		console.log("Something goes wrong!");
-	}
+  	if(this.todoService.addTodo(todo)) {		
+  		this.status = 'Todo Added!';
+  		// this.todos = this.todoService.getTodos();
+  	}
+  	else {
+  		this.status = 'No records found!';
+  		console.log("Something goes wrong!");
+  	}
+  }
+
+  onStatusColoredHandler(event:any) {
+    console.log('Status has been colored', event);
   }
 
 
