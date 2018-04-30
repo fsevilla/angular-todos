@@ -25,9 +25,13 @@ export class LoginComponent implements OnInit {
   	console.log('Credentials: ', this.data);
   	this.userService.login(this.data)
   		.then(response => {
-  			console.log('Success!', response);
-  			this.router.navigate(['/todos']);
+  			console.log('Will get permissions!', response);
+         return this.userService.getPermissions();
   		})
+      .then(response => {
+        console.log('Permissions: ', response);
+        this.router.navigate(['/']);        
+      })
   		.catch(error => {
   			console.log('Error', error.json());
   			this.error = error.json().message;

@@ -30,4 +30,12 @@ export class AuthService {
     this.loginStatus.next(false);
   }
 
+  setPermissions(permissions) {
+    localStorage.setItem('permissions', JSON.stringify(permissions));
+  }
+
+  getPermissions() {
+    return localStorage.getItem('permissions') ? JSON.parse(localStorage.getItem('permissions')) : null;
+  }
+
 }

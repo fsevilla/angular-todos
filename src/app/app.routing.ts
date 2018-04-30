@@ -6,10 +6,14 @@ import { SignupComponent} from './signup/signup.component';
 import { LoginComponent } from './login/login.component';
 import { AuthGuard } from './shared/guards/auth.guard';
 import { UnauthGuard } from './shared/guards/unauth.guard';
+import { PermissionsGuard } from './shared/guards/permissions.guard';
 
 const appRoutes: Routes = [
 	{ path: '', redirectTo: '/todos', pathMatch: 'full' },
-	{ path: 'todos', component: TodosComponent, pathMatch: 'full', canActivate: [AuthGuard] },
+	{ path: 'todos', component: TodosComponent, pathMatch: 'full', canActivate: [AuthGuard, PermissionsGuard], data: {
+		resource: 'todos',
+		permissions: ['list']
+	} },
 	{ path: 'todos/:id', component: TodoDetailsComponent, canActivate: [AuthGuard] },
 	{ path: 'signup', component: SignupComponent, canActivate: [UnauthGuard] },
 	{ path: 'login', component: LoginComponent, canActivate: [UnauthGuard] },

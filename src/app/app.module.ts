@@ -22,6 +22,7 @@ import { AuthGuard } from './shared/guards/auth.guard';
 import { UnauthGuard } from './shared/guards/unauth.guard';
 import { CustomHttpService } from './shared/services/custom-http.service';
 import { TodoStatusDirective } from './todos/status.directive';
+import { PermissionsGuard } from './shared/guards/permissions.guard';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { TodoStatusDirective } from './todos/status.directive';
     AuthService,
     AuthGuard,
     UnauthGuard,
-    CustomHttpService
+    CustomHttpService,
+    PermissionsGuard
   ],
   bootstrap: [
   	AppComponent
