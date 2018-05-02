@@ -10,10 +10,12 @@ import { PermissionsGuard } from './shared/guards/permissions.guard';
 
 const appRoutes: Routes = [
 	{ path: '', redirectTo: '/todos', pathMatch: 'full' },
-	{ path: 'todos', component: TodosComponent, pathMatch: 'full', canActivate: [AuthGuard, PermissionsGuard], data: {
-		resource: 'todos',
-		permissions: ['list']
-	} },
+	{ path: 'todos', component: TodosComponent, pathMatch: 'full', canActivate: [AuthGuard],
+		data: {
+			resource: 'todos',
+			permissions: ['list']
+		} 
+	},
 	{ path: 'todos/:id', component: TodoDetailsComponent, canActivate: [AuthGuard] },
 	{ path: 'signup', component: SignupComponent, canActivate: [UnauthGuard] },
 	{ path: 'login', component: LoginComponent, canActivate: [UnauthGuard] },

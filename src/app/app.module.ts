@@ -23,6 +23,7 @@ import { UnauthGuard } from './shared/guards/unauth.guard';
 import { CustomHttpService } from './shared/services/custom-http.service';
 import { TodoStatusDirective } from './todos/status.directive';
 import { PermissionsGuard } from './shared/guards/permissions.guard';
+import { PermissionsDirective } from './shared/directives/permissions.directive';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { PermissionsGuard } from './shared/guards/permissions.guard';
     SignupComponent,
     LoginComponent,
     HeaderComponent,
-    TodoStatusDirective
+    TodoStatusDirective,
+    PermissionsDirective
   ],
   imports: [
     BrowserModule,
