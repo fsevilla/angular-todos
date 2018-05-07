@@ -36,5 +36,9 @@ export class TodosComponent implements OnInit {
     console.log('Status has been colored', event);
   }
 
+  addTodo() {
+    console.log('Will create todo!');
+  }
+
 
 }
