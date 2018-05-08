@@ -1,7 +1,7 @@
 export const environment = {
   production: true,
-  api: 'http://eae2747b.ngrok.io/api/',
-  authApi: 'http://eae2747b.ngrok.io/',
+  api: '//eae2747b.ngrok.io/api/',
+  authApi: '//eae2747b.ngrok.io/',
   client: {
   	client_id: 2,
   	grant_type: 'password',
