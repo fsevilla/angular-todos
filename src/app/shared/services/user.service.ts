@@ -44,9 +44,9 @@ export class UserService {
     let userPermissions = this.authService.getPermissions(),
         resourcePermissions = userPermissions[resource];
 
-    let match = resourcePermissions.filter(n => {
+    let match = resourcePermissions ? resourcePermissions.filter(n => {
       return actions.indexOf(n) !== -1;
-    });
+    }) : [];
 
     return match.length > 0;
   }

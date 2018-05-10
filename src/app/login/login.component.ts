@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
   		})
       .then(response => {
         console.log('Permissions: ', response);
-        this.router.navigate(['/']);        
+        this.router.navigate(['/']);
       })
   		.catch(error => {
   			console.log('Error', error.json());
